@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
+        <View style={styles.header}>
+          <Text>Voltar</Text>
+          <Text>Titulo</Text>
+          <Text>Perfil</Text>
+        </View>
       </View>
     );
   }
@@ -18,17 +19,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#CCC',
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignContent: 'space-around',
   },
-  box: {
-    height: 100,
-    flex: 1,
-    minWidth: 100,
-    backgroundColor: '#666',
-    borderColor: '#999',
-    borderWidth: 5,
-    margin: 10,
+  header: {
+    height: 60,
+    backgroundColor: '#FFF',
+    paddingTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    alignItems: 'center',
   },
 });
