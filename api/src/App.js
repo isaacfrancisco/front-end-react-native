@@ -1,27 +1,33 @@
 import React, {Component} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Alert, Button, StyleSheet, Text, View} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from './services/api';
 export default class App extends Component {
   state = {
+    loggedInUser: null,
     errorMessage: null,
   };
 
   signIn = async () => {
     try {
       const response = await api.post('/auth/authenticate', {
-        email: 'isaacfranisco123@gmail.com',
+        email: 'isaacfranisco1@gmail.com',
         password: '0123456789',
       });
 
       const {user, token} = response.data;
-      console.log(user, token);
 
       await AsyncStorage.multiSet([
         ['@CodeApi:token', token],
         ['@CodeApi:user', JSON.stringify(user)],
       ]);
+
+      this.setState({
+        loggedInUser: user.name,
+      });
+
+      Alert.alert('Login com sucesso!');
     } catch (response) {
       this.setState({
         errorMessage: response.data.error,
@@ -32,6 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {!!this.state.loggedInUser && <Text>{this.state.loggedInUser}</Text>}
         {!!this.state.errorMessage && <Text>{this.state.errorMessage}</Text>}
         <Button onPress={this.signIn} title="Entrar" />
       </View>
