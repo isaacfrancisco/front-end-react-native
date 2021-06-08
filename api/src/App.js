@@ -24,7 +24,7 @@ export default class App extends Component {
       ]);
 
       this.setState({
-        loggedInUser: user.name,
+        loggedInUser: user,
       });
 
       Alert.alert('Login com sucesso!');
@@ -35,10 +35,23 @@ export default class App extends Component {
     }
   };
 
+  async componentDidMount() {
+    const token = await AsyncStorage.getItem('@CodeApi:token');
+    const user = JSON.parse(await AsyncStorage.getItem('@CodeApi:user'));
+
+    if (token && user) {
+      this.setState({
+        loggedInUser: user,
+      });
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        {!!this.state.loggedInUser && <Text>{this.state.loggedInUser}</Text>}
+        {!!this.state.loggedInUser && (
+          <Text>{this.state.loggedInUser.name}</Text>
+        )}
         {!!this.state.errorMessage && <Text>{this.state.errorMessage}</Text>}
         <Button onPress={this.signIn} title="Entrar" />
       </View>
