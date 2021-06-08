@@ -16,13 +16,14 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     backgroundColor: '#CCC',
     flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   box: {
     height: 100,
-    flex: 1,
+    width: 100,
     backgroundColor: '#666',
     borderColor: '#999',
     borderWidth: 5,
