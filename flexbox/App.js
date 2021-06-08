@@ -6,7 +6,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.box} />
-        <View style={styles.box} />
+        <View style={[styles.box, styles.box2]} />
         <View style={styles.box} />
         <View style={styles.box} />
       </View>
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-around',
   },
   box: {
     height: 100,
@@ -28,5 +29,8 @@ const styles = StyleSheet.create({
     borderColor: '#999',
     borderWidth: 5,
     margin: 10,
+  },
+  box2: {
+    alignSelf: 'flex-end',
   },
 });
