@@ -7,6 +7,7 @@ export default class App extends Component {
   state = {
     loggedInUser: null,
     errorMessage: null,
+    projects: [],
   };
 
   signIn = async () => {
@@ -35,6 +36,22 @@ export default class App extends Component {
     }
   };
 
+  getProjectList = async () => {
+    try {
+      const response = await api.get('/projects');
+
+      const {projects} = response.data;
+
+      this.setState({
+        projects: projects,
+      });
+    } catch (response) {
+      this.setState({
+        errorMessage: response.data.error,
+      });
+    }
+  };
+
   async componentDidMount() {
     const token = await AsyncStorage.getItem('@CodeApi:token');
     const user = JSON.parse(await AsyncStorage.getItem('@CodeApi:user'));
@@ -53,7 +70,19 @@ export default class App extends Component {
           <Text>{this.state.loggedInUser.name}</Text>
         )}
         {!!this.state.errorMessage && <Text>{this.state.errorMessage}</Text>}
-        <Button onPress={this.signIn} title="Entrar" />
+
+        {this.state.loggedInUser ? (
+          <Button onPress={this.getProjectList} title="Carregar Projetos" />
+        ) : (
+          <Button onPress={this.signIn} title="Entrar" />
+        )}
+
+        {this.state.projects.map(project => (
+          <View key={project._id} style={{marginTop: 15}}>
+            <Text style={{fontWeight: 'bold'}}>{project.title}</Text>
+            <Text>{project.description}</Text>
+          </View>
+        ))}
       </View>
     );
   }
