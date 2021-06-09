@@ -3,12 +3,14 @@ import {Text, View} from 'react-native';
 import {ApolloProvider} from 'react-apollo';
 
 import apolloClient from './services/apollo';
+
+import TodoList from './components/TodoList';
 class App extends Component {
   render() {
     return (
       <ApolloProvider client={apolloClient}>
         <View>
-          <Text>Hello World</Text>
+          <TodoList />
         </View>
       </ApolloProvider>
     );
