@@ -7,7 +7,7 @@ QuickActions.setShortcutItems([
     type: 'contacts',
     title: 'Listar contatos',
     subtitle: 'Ver amigos',
-    icon: Platform.OS === 'ios' ? 'Rocket' : 'rocket',
+    icon: Platform.OS === 'ios' ? 'Icon' : 'icon',
     userInfo: {
       url: 'app://contacts',
     },
@@ -18,6 +18,9 @@ DeviceEventEmitter.addListener('quickActionShortcut', data => {
   console.log(data);
 });
 
+QuickActions.popInitialAction().then(data => {
+  console.log(data);
+});
 export default class App extends Component {
   render() {
     return (
