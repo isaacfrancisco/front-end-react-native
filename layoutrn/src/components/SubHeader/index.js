@@ -10,7 +10,7 @@ export class SubHeader extends Component {
         <Image
           style={styles.avatar}
           source={{
-            URL: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fst.depositphotos.com%2F1780879%2F3816%2Fi%2F600%2Fdepositphotos_38166573-stock-photo-trees-with-sunbeams.jpg&imgrefurl=https%3A%2F%2Fpt.depositphotos.com%2Fstock-photos%2Fimagem-de-floresta.html&tbnid=h8F_IkS0y_t2rM&vet=12ahUKEwjRwqXsnI7xAhWqhJUCHeSMDy8QMygCegUIARDUAQ..i&docid=Xzzc0dqbv4Dn9M&w=600&h=450&q=imagem&ved=2ahUKEwjRwqXsnI7xAhWqhJUCHeSMDy8QMygCegUIARDUAQ',
+            uri: 'https://image.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg',
           }}
         />
         <View style={styles.profileInfo}>
@@ -18,8 +18,8 @@ export class SubHeader extends Component {
           <Text style={styles.bio}>Estudante</Text>
 
           <View style={styles.buttonContainer}>
-            <Button>Mensagem</Button>
-            <Button>Seguir</Button>
+            <Button style={styles.firstButton}>Mensagem</Button>
+            <Button type="outline">Seguir</Button>
           </View>
         </View>
       </View>
