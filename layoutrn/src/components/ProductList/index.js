@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import styles from '../Header/styles';
+import styles from './styles';
 import Product from './Product';
 
 export default class ProductList extends Component {

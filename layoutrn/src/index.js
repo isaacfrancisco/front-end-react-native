@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 
 import './config/ReactotronConfig';
 import Header from './components/Header';
@@ -8,10 +8,13 @@ import ProductList from './components/ProductList';
 import Tabs from './components/Tabs';
 
 const App = () => (
-  <View style={{flex: 1}}>
+  <View style={{flex: 1, backgroundColor: '#F8F8FA'}}>
     <Header />
-    <SubHeader />
-    <ProductList />
+    <ScrollView>
+      <SubHeader />
+      <ProductList />
+    </ScrollView>
+
     <Tabs />
   </View>
 );
