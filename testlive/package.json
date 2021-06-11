@@ -96,7 +96,7 @@
   },
   "jest": {
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/__tests__"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -106,10 +106,9 @@
       "react-app-polyfill/jsdom",
       "<rootDir>/__tests__/setup.js"
     ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.js"
-    ],
     "testMatch": [
+      "<rootDir>/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/__tests__/*.{spec,test}.{js,jsx,ts,tsx}",
       "<rootDir>/__tests__/**/?(*.)(spec|test).js?(x)"
     ],
     "testEnvironment": "jsdom",
