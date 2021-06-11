@@ -10,7 +10,7 @@ export class Tabs extends Component {
         <Icon name="bell-g" size={16} style={[styles.icon, styles.active]} />
         <Icon name="bell-g" size={16} style={styles.icon} />
         <View style={styles.main}>
-          <Icon name="bell-g" size={16} style={styles.icon} />
+          <Icon name="bell-g" size={16} style={styles.mainIcon} />
         </View>
         <Icon name="bell-g" size={16} style={styles.icon} />
         <Icon name="bell-g" size={16} style={styles.icon} />
