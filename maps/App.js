@@ -7,11 +7,22 @@ export default class App extends Component {
     latitude: -21.7258111,
     longitude: -43.4024778,
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.mapView.animateToCoordinate({
+        latitude: -21.7958111,
+        longitude: -43.4724778,
+      });
+    }, 3000);
+  }
+
   render() {
     const {latitude, longitude} = this.state;
     return (
       <View style={styles.container}>
         <MapView
+          ref={map => (this.mapView = map)}
           initialRegion={{
             latitude,
             longitude,
