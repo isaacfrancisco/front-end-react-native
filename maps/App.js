@@ -23,7 +23,14 @@ export default class App extends Component {
           scrollEnabled={false}
           zoomEnabled={false}
           showsPointsOfInterest={false}
-          showsBuildings={false}></MapView>
+          showsBuildings={false}>
+          <MapView.Marker
+            coordinate={{
+              latitude,
+              longitude,
+            }}
+          />
+        </MapView>
       </View>
     );
   }
