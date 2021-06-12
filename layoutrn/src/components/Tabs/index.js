@@ -7,13 +7,13 @@ export class Tabs extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Icon name="bell-g" size={16} style={[styles.icon, styles.active]} />
-        <Icon name="bell-g" size={16} style={styles.icon} />
+        <Icon name="clone" size={16} style={[styles.icon, styles.active]} />
+        <Icon name="search" size={16} style={styles.icon} />
         <View style={styles.main}>
-          <Icon name="bell-g" size={16} style={styles.mainIcon} />
+          <Icon name="plus" size={16} style={styles.mainIcon} />
         </View>
-        <Icon name="bell-g" size={16} style={styles.icon} />
-        <Icon name="bell-g" size={16} style={styles.icon} />
+        <Icon name="bell" size={16} style={styles.icon} />
+        <Icon name="user" size={16} style={styles.icon} />
       </View>
     );
   }

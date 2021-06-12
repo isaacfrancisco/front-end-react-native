@@ -45,6 +45,15 @@ const styles = StyleSheet.create({
   firstButton: {
     marginRight: 10,
   },
+  followButton: {
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: colors.primary,
+    color: colors.primary,
+  },
+  textButton: {
+    color: colors.primary,
+  },
 });
 
 export default styles;

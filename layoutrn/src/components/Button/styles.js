@@ -11,20 +11,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 
-  'button-outline': {
-    backgroundColor: '#FFF',
-    borderWidth: 1,
-    borderColor: colors.primary,
-  },
-
   text: {
-    color: '#FFF',
+    color: 'black',
     fontWeight: 'bold',
     fontSize: fonts.small,
-  },
-
-  'text-outline': {
-    color: colors.primary,
   },
 });
 

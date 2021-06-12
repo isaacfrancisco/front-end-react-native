@@ -19,7 +19,9 @@ export class SubHeader extends Component {
 
           <View style={styles.buttonContainer}>
             <Button style={styles.firstButton}>Mensagem</Button>
-            <Button type="outline">Seguir</Button>
+            <Button style={[styles.followButton, styles.textButton]}>
+              Seguir
+            </Button>
           </View>
         </View>
       </View>
