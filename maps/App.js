@@ -13,7 +13,12 @@ export default class App extends Component {
             latitudeDelta: 0.0242,
             longitudeDelta: 0.0131,
           }}
-          style={styles.mapView}></MapView>
+          style={styles.mapView}
+          rotateEnabled={false}
+          scrollEnabled={false}
+          zoomEnabled={false}
+          showsPointsOfInterest={false}
+          showsBuildings={false}></MapView>
       </View>
     );
   }
