@@ -3,13 +3,18 @@ import {StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class App extends Component {
+  state = {
+    latitude: -21.7258111,
+    longitude: -43.4024778,
+  };
   render() {
+    const {latitude, longitude} = this.state;
     return (
       <View style={styles.container}>
         <MapView
           initialRegion={{
-            latitude: -21.7258111,
-            longitude: -43.4024778,
+            latitude,
+            longitude,
             latitudeDelta: 0.0242,
             longitudeDelta: 0.0131,
           }}
