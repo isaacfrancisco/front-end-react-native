@@ -31,10 +31,20 @@ export default class App extends Component {
             }}
           />
         </MapView>
+        <ScrollView
+          style={styles.placesContainer}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled>
+          <View style={styles.place}></View>
+          <View style={styles.place}></View>
+        </ScrollView>
       </View>
     );
   }
 }
+
+const {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -48,5 +58,15 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+  },
+  placesContainer: {
+    width: '100%',
+    maxHeight: 200,
+  },
+  place: {
+    width: width - 40,
+    maxHeight: 200,
+    backgroundColor: '#FFF',
+    marginHorizontal: 20,
   },
 });
