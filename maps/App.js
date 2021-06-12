@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import MapView from 'react-native-maps';
 
+const {height, width} = Dimensions.get('window');
+
 export default class App extends Component {
   state = {
     places: [
@@ -49,6 +51,9 @@ export default class App extends Component {
           showsBuildings={false}>
           {this.state.places.map(place => (
             <MapView.Marker
+              ref={mark => (place.mark = mark)}
+              title={place.title}
+              description={place.description}
               key={place.id}
               coordinate={{
                 latitude: place.latitude,
@@ -61,7 +66,27 @@ export default class App extends Component {
           style={styles.placesContainer}
           horizontal
           showsHorizontalScrollIndicator={false}
-          pagingEnabled>
+          pagingEnabled
+          onMomentumScrollEnd={e => {
+            const scrolled = e.nativeEvent.contentOffset.x;
+
+            const place =
+              scrolled > 0 ? scrolled / Dimensions.get('window').width : 0;
+
+            const {latitude, longitude, mark} = this.state.places[place];
+
+            this.mapView.animateToCoordinate(
+              {
+                latitude,
+                longitude,
+              },
+              1000,
+            );
+
+            setTimeout(() => {
+              mark.showCallout();
+            }, 500);
+          }}>
           {this.state.places.map(place => (
             <View key={place.id} style={styles.place}>
               <Text>{place.title}</Text>
@@ -73,8 +98,6 @@ export default class App extends Component {
     );
   }
 }
-
-const {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
