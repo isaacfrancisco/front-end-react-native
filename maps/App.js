@@ -4,21 +4,33 @@ import MapView from 'react-native-maps';
 
 export default class App extends Component {
   state = {
-    latitude: -21.7258111,
-    longitude: -43.4024778,
+    places: [
+      {
+        id: 1,
+        title: 'Casa do café',
+        description: 'Café quentinho...',
+        latitude: -21.7258111,
+        longitude: -43.4024778,
+      },
+      {
+        id: 2,
+        title: 'Rockseat',
+        description: 'Programação, empreendedorismo e mindset',
+        latitude: -21.7221119,
+        longitude: -43.4097778,
+      },
+      {
+        id: 3,
+        title: 'Casa do José',
+        description: 'José, tá em casa?',
+        latitude: -21.7298121,
+        longitude: -43.4097729,
+      },
+    ],
   };
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.mapView.animateToCoordinate({
-        latitude: -21.7958111,
-        longitude: -43.4724778,
-      });
-    }, 3000);
-  }
-
   render() {
-    const {latitude, longitude} = this.state;
+    const {latitude, longitude} = this.state.places[0];
     return (
       <View style={styles.container}>
         <MapView
@@ -26,8 +38,8 @@ export default class App extends Component {
           initialRegion={{
             latitude,
             longitude,
-            latitudeDelta: 0.0242,
-            longitudeDelta: 0.0131,
+            latitudeDelta: 0.0142,
+            longitudeDelta: 0.0231,
           }}
           style={styles.mapView}
           rotateEnabled={false}
@@ -35,12 +47,15 @@ export default class App extends Component {
           zoomEnabled={false}
           showsPointsOfInterest={false}
           showsBuildings={false}>
-          <MapView.Marker
-            coordinate={{
-              latitude,
-              longitude,
-            }}
-          />
+          {this.state.places.map(place => (
+            <MapView.Marker
+              key={place.id}
+              coordinate={{
+                latitude: place.latitude,
+                longitude: place.longitude,
+              }}
+            />
+          ))}
         </MapView>
         <ScrollView
           style={styles.placesContainer}
