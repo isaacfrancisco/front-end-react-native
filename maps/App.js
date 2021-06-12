@@ -31,6 +31,10 @@ export default class App extends Component {
     ],
   };
 
+  _mapReady = () => {
+    this.state.places[0].mark.showCallout();
+  };
+
   render() {
     const {latitude, longitude} = this.state.places[0];
     return (
@@ -48,7 +52,8 @@ export default class App extends Component {
           scrollEnabled={false}
           zoomEnabled={false}
           showsPointsOfInterest={false}
-          showsBuildings={false}>
+          showsBuildings={false}
+          onMapReady={this._mapReady}>
           {this.state.places.map(place => (
             <MapView.Marker
               ref={mark => (place.mark = mark)}
@@ -77,8 +82,8 @@ export default class App extends Component {
 
             this.mapView.animateToCoordinate(
               {
-                latitude,
-                longitude,
+                latitude: latitude,
+                longitude: longitude,
               },
               1000,
             );
