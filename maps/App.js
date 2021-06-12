@@ -62,8 +62,12 @@ export default class App extends Component {
           horizontal
           showsHorizontalScrollIndicator={false}
           pagingEnabled>
-          <View style={styles.place}></View>
-          <View style={styles.place}></View>
+          {this.state.places.map(place => (
+            <View key={place.id} style={styles.place}>
+              <Text>{place.title}</Text>
+              <Text>{place.description}</Text>
+            </View>
+          ))}
         </ScrollView>
       </View>
     );
