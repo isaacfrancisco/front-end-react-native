@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {View, Image} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
+import Search from '../Search';
 
 export default class Map extends Component {
   state = {
@@ -41,6 +42,7 @@ export default class Map extends Component {
           showsUserLocation
           loadingEnabled
         />
+        <Search />
       </View>
     );
   }
