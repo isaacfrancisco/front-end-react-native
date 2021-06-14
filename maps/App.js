@@ -78,15 +78,16 @@ export default class App extends Component {
             const place =
               scrolled > 0 ? scrolled / Dimensions.get('window').width : 0;
 
-            const {latitude, longitude, mark} = this.state.places[place];
+            const x = Math.round(place);
 
-            this.mapView.animateToCoordinate(
-              {
+            const {latitude, longitude, mark} = this.state.places[x];
+
+            this.mapView.animateCamera({
+              center: {
                 latitude: latitude,
                 longitude: longitude,
               },
-              1000,
-            );
+            });
 
             setTimeout(() => {
               mark.showCallout();
