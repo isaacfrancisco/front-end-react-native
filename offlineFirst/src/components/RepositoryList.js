@@ -33,7 +33,9 @@ const RepositoryList = ({repositories, addRepositoryRequest}) => (
 
     <Button
       title="Adicionar"
-      onPress={() => addRepositoryRequest('facebook/react')}
+      onPress={() => {
+        addRepositoryRequest('facebook/react');
+      }}
     />
   </View>
 );
