@@ -15,7 +15,7 @@ export default function Repository({data, onRefresh}) {
   return (
     <Container>
       <Name>{data.name}</Name>
-      <Description>{data.Description}</Description>
+      <Description>{data.description}</Description>
 
       <Stats>
         <Stat>
